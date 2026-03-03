@@ -5,6 +5,7 @@ This is a Python script that allow Inner Mongolia University students to automat
 
 Use the following command to install the required libraries:
 ```
+cp .env.example .env
 pip install -r requirements.txt
 ```
 
