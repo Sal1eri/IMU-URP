@@ -5,6 +5,7 @@ This is a Python script that allow Inner Mongolia University students to automat
 
 Use the following command to install the required libraries:
 ```
+conda create -n your_env_name python=3.11
 cp .env.example .env
 pip install -r requirements.txt
 ```
