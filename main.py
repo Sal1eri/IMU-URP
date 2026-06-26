@@ -334,7 +334,19 @@ def fetch_and_print_scores(session):
         if s >= 70: return C_YELLOW
         return C_RED
 
-    cols = ["课程", "学分", "成绩"]
+    def score_to_gpa(s):
+        if s >= 90: return 4.0
+        if s >= 85: return 3.7
+        if s >= 82: return 3.3
+        if s >= 78: return 3.0
+        if s >= 75: return 2.7
+        if s >= 72: return 2.3
+        if s >= 68: return 2.0
+        if s >= 64: return 1.5
+        if s >= 60: return 1.0
+        return 0
+
+    cols = ["课程", "学分", "成绩", "GPA"]
     colw = {c: _wcswidth(c) for c in cols}
     for items in semesters.values():
         for cn, cr, sc, is_pf in items:
@@ -342,6 +354,8 @@ def fetch_and_print_scores(session):
             colw["学分"] = max(colw["学分"], _wcswidth(f"{cr:.1f}"))
             sc_str = "合格" if is_pf else (f"{sc:.1f}" if isinstance(sc, float) and sc != int(sc) else f"{int(sc)}")
             colw["成绩"] = max(colw["成绩"], _wcswidth(sc_str))
+            gpa_str = "-" if is_pf else f"{score_to_gpa(sc):.1f}"
+            colw["GPA"] = max(colw["GPA"], _wcswidth(gpa_str))
 
     def hrule(a, b, c):
         return a + "+".join("-" * (colw[x] + 2) for x in cols) + c
@@ -359,27 +373,19 @@ def fetch_and_print_scores(session):
             if is_pf:
                 sc_pad = _pad("合格", colw["成绩"])
                 sc_disp = f"{C_YELLOW}{sc_pad}{C_RESET}"
+                gpa_disp = _pad("-", colw["GPA"])
             else:
                 sc_str = f"{sc:.1f}" if isinstance(sc, float) and sc != int(sc) else f"{int(sc)}"
                 sc_pad = _pad(sc_str, colw["成绩"])
                 sc_disp = f"{score_color(sc)}{sc_pad}{C_RESET}"
-            print(f"  | {cn_pad} | {cr_pad} | {sc_disp} |")
+                gpa_str = f"{score_to_gpa(sc):.1f}"
+                gpa_pad = _pad(gpa_str, colw["GPA"])
+                gpa_disp = f"{score_color(sc)}{gpa_pad}{C_RESET}"
+            print(f"  | {cn_pad} | {cr_pad} | {sc_disp} | {gpa_disp} |")
         print(f"  {hrule(chr(39), chr(39), chr(39))}")
         print()
 
     avg = graded_weighted / graded_credits if graded_credits > 0 else 0
-
-    def score_to_gpa(s):
-        if s >= 90: return 4.0
-        if s >= 85: return 3.7
-        if s >= 82: return 3.3
-        if s >= 78: return 3.0
-        if s >= 75: return 2.7
-        if s >= 72: return 2.3
-        if s >= 68: return 2.0
-        if s >= 64: return 1.5
-        if s >= 60: return 1.0
-        return 0
 
     gpa = 0
     if graded_credits > 0:
