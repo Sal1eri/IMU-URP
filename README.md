@@ -63,30 +63,26 @@ python main.py
 [*] 提交登录...
 [OK] 登录成功
 
-[2021-2022学年秋]
-.------------------------------------------+------+------+------.
-| 课程                                     | 学分 | 成绩 | GPA  |
-+------------------------------------------+------+------+------+
-| 课程 A                                    | 6.0  | 95   | 4.0  |
-| 课程 B                                    | 6.0  | 80   | 3.0  |
-| 课程 C                                    | 3.0  | 93   | 4.0  |
-| ...                                       | ...  | ...  | ...  |
-'------------------------------------------+------+------+------'
+[2021-2022 秋季学期]
+.--------------+------+------+------.
+| 课程          | 学分 | 成绩 | GPA  |
++--------------+------+------+------+
+| 课程名称     | 6.0  | 95   | 4.0  |
+| 课程名称     | 6.0  | 80   | 3.0  |
+| ...          | ...  | ...  | ...  |
+'--------------+------+------+------'
 
-.-------------------------------------.
-|  总学分: 180  课程数: 60           |
-|  加权平均分: 85.00  |  GPA: 3.50   |
-'-------------------------------------'
-[OK] 成绩良好 (含合格制课程不参与 GPA)
+总学分: 180  课程数: 60
+加权平均分: 85.00 | GPA: 3.50
 ```
 
 ## 免责声明 / Disclaimer
 
-本脚本默认参数均为合理设置，请求频率不高于正常手动操作。若因修改参数（如缩短请求间隔、增加重试次数等）导致流量异常或产生其他后果，由修改者自行承担。
+本脚本默认参数均为合理设置，请求频率不高于正常手动操作，仅用于个人使用以提升便利性。若因修改参数（如缩短请求间隔、增加重试次数等）导致流量异常或产生其他后果，由修改者自行承担。
 
 请勿频繁请求，以免给服务器造成压力。请妥善保管个人账号、密码及 Cookie，脚本仅从本地 `.env` 读取凭据，不会上传或泄露。
 
-Default parameters are set to reasonable values, with request frequency not exceeding normal manual operation. Modifying parameters (e.g. reducing intervals, increasing retries) that causes abnormal traffic or other issues is the sole responsibility of the modifier.
+Default parameters are set to reasonable values, with request frequency not exceeding normal manual operation, for personal convenience only. Modifying parameters (e.g. reducing intervals, increasing retries) that causes abnormal traffic or other issues is the sole responsibility of the modifier.
 
 Do not send excessive requests. Keep your credentials secure. They are only read from the local `.env` file and are never uploaded or shared.
 
@@ -148,19 +144,19 @@ The first run will automatically download the ddddocr model (~10MB).
 [OK] Login successful
 
 [2021-2022 Fall]
-.------------------------------------------+------+------+------.
-| Course                                   | Cr.  | Score| GPA  |
-+------------------------------------------+------+------+------+
-| Programming Fundamentals A               | 6.0  | 95   | 4.0  |
-| Advanced Mathematics                     | 6.0  | 80   | 3.0  |
-| English                                  | 3.0  | 93   | 4.0  |
-| ...                                      | ...  | ...  | ...  |
-'------------------------------------------+------+------+------'
+.-----------------+------+------+------.
+| Course          | Cr.  | Score| GPA  |
++-----------------+------+------+------+
+| Course A        | 6.0  | 95   | 4.0  |
+| Course B        | 6.0  | 80   | 3.0  |
+| Course C        | 3.0  | 93   | 4.0  |
+| ...             | ...  | ...  | ...  |
+'-----------------+------+------+------'
 
-.-------------------------------------.
-|  Total Credits: 180  Courses: 60   |
-|  Weighted Avg: 85.00  |  GPA: 3.50 |
-'-------------------------------------'
+.------------------------------.
+| Total Credits: 180 Courses: 60 |
+| Weighted Avg: 85.00 | GPA: 3.50 |
+'------------------------------'
 [OK] Good (pass/fail courses excluded from GPA)
 ```
 
