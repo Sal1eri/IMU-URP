@@ -1,6 +1,14 @@
 certifi==2026.1.4
 charset-normalizer==3.4.4
+ddddocr==1.6.1
+flatbuffers==25.12.19
 idna==3.11
+numpy==2.4.6
+onnxruntime==1.27.0
+opencv-python==4.13.0.92
+packaging==25.0
+pillow==12.2.0
+protobuf==7.35.1
 python-dotenv==1.2.1
 requests==2.32.5
 urllib3==2.6.3
